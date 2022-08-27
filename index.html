@@ -1,0 +1,262 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <script type="text/javascript">
+        function OrderClick(){
+            document.getElementById("lblcustmor").innerHTML = document.getElementById("txtName").value;
+            document.getElementById("lblnumber").innerHTML = document.getElementById("number").value;
+            // document.getElementById("lblnumber").innerHTML = document.getElementById("number").value;
+            var mealName = "";
+            var mealPrice = 0;
+            var addonName = "";
+            var addonCost = 0;
+            // radio meal
+            var optmanu1 = document.getElementById("optmanu1");
+            var optmanu2 = document.getElementById("optmanu2");
+            var optmanu3 = document.getElementById("optmanu3");
+            if(optmanu1.checked){
+                mealName = optmanu1.value;
+                mealPrice = 1500;
+            }
+            if(optmanu2.checked){
+                mealName = optmanu2.value;
+                mealPrice = 1000;
+            }
+            if(optmanu3.checked){
+                mealName = optmanu3.value;
+                mealPrice = 1000;
+            }
+            
+            // addon check box
+            var checkaddon1 = document.getElementById("optaddon1");
+            var checkaddon2 = document.getElementById("optaddon2");
+            var checkaddon3 = document.getElementById("optaddon3");
+            if(checkaddon1.checked){
+                addonName += checkaddon1.value + "<br>";
+                addonCost = 150;
+                mealPrice += addonCost;
+            }
+            if(checkaddon2.checked){
+                addonName += checkaddon2.value + "<br>";
+                addonCost = 200;
+                mealPrice += addonCost;
+            }
+            if(checkaddon3.checked){
+                addonName += checkaddon3.value + "<br>";
+                addonCost = 100;
+                mealPrice += addonCost;
+            }
+            if()
+            total = mealPrice;
+            document.getElementById("lblmeal").innerHTML = mealName;
+            document.getElementById("lbladon").innerHTML = addonName;
+            document.getElementById("lbltotle").innerHTML = total;
+        }
+    </script>
+    <style>
+        body{
+            background-color: maroon;
+        }
+    </style>
+</head>
+<body class="container-fluid w-100">
+    <header id="img_load">
+        <img src="./public/img/banner.jpg" width="100%" height="650" alt="logo">
+    </header>
+    <!-- Customre details -->
+    <section>
+        <div class="accordion" id="kfc">
+            <div class="accordion-item">
+                <div class="accordion-header">
+                    <button class="btn btn-danger w-100" data-bs-target="#custmore" data-bs-toggle="collapse">
+                        Custmor Information
+                    </button>
+                </div>
+                <div class="accordion-collapse fade collapse mt-3" id="custmore" data-bs-parent="kfc">
+                    <div class="accordion-body">
+                        <dl>
+                            <dt>Custmor Name</dt>
+                            <dd>
+                                <input type="text" id="txtName" class="form-control">
+                            </dd>
+                            <dt>Phone Number</dt>
+                            <dd>
+                                <input type="text" id="number" class="form-control">
+                            </dd>
+                        </dl>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Meal Details -->
+
+    <div class="accordion-item">
+        <div class="accordion-header">
+            <button class="btn btn-primary w-100" data-bs-target="#meal-order" data-bs-toggle="collapse">
+                Meal Order Section
+            </button>
+        </div>
+        <div class="accordion-collapse collapse  fade" id="meal-order" data-bs-parent="kfc">
+            <div class="accordion-body">
+                <div class="row">
+                    <div class="col">
+                       <div class="card w-100">
+                            <img src="./public/img/indianthali.jpg" width="100%" class="card-image-top" width="100%" alt="">
+                            <div class="card-header">
+                                <h1>Thali</h1>
+                            </div>
+                            <div class="card-body">
+                                <dl>
+                                    <dt><h3>Price</h3></dt>
+                                    <dd>
+                                        <input type="radio" class="form-check-input" id="optmanu1" value="Thali" name="indianfood">
+                                        <label for=""><h3>$1500</h3></label>
+                                    </dd>
+                                </dl>
+                            </div>
+                       </div>
+                    </div>
+                    <div class="col">
+                            <div class="card w-100">
+                                <img src="./public/img/pizza.jpg" width="100%" class="card-image-top" width="100%" alt="">
+                                <div class="card-header">
+                                    <h1>Pizza</h1>
+                                </div>
+                                <div class="card-body">
+                                    <dl>
+                                        <dt><h3>Price</h3></dt>
+                                        <dd>
+                                            <input type="radio" class="form-check-input" value="Pizza" name="pizza1" id="optmanu2">
+                                            <label for=""><h3>$1000</h3></label>
+                                        </dd>
+                                    </dl>
+                                </div>
+                            </div>
+                    </div>
+                    <div class="col">
+                        <div class="card w-100">
+                            <img src="./public/img/chinesfood.jpg" class="card-image-top" width="100%" alt="">
+                            <div class="card-header">
+                                <h1>Chinesfood</h1>
+                            </div>
+                            <div class="card-body">
+                                <dl>
+                                    <dt><h3>Price</h3></dt>
+                                    <dd>
+                                        <input type="radio" class="form-check-input" value="Chinesfood" id="optmanu3" name="Chinesfood3">
+                                        <label for=""><h3>$1000</h3></label>
+                                    </dd>
+                                </dl>
+                            </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+<!-- Addon items -->
+<div class="accordion-item">
+    <div class="accordion-header">
+        <button class="btn btn-success w-100" data-bs-target="#addon-items" data-bs-toggle="collapse">
+            Addon Section
+        </button>
+    </div>
+    <div class="accordion-collapse collapse  fade" id="addon-items" data-bs-parent="kfc">
+        <div class="accordion-body">
+            <div class="row">
+                <div class="col">
+                   <div class="card w-100">
+                        <img src="./public/img/Amlet.jpg" width="100%" class="card-image-top" width="100%" alt="">
+                        <div class="card-header">
+                            <h1>Egges</h1>
+                        </div>
+                        <div class="card-body">
+                            <dl>
+                                <dt><h3>Price</h3></dt>
+                                <dd>
+                                    <input type="checkbox" id="optaddon1" class="form-check-input" value="Egges" name="Amlet1">
+                                    <label for=""><h3>$150</h3></label>
+                                </dd>
+                            </dl>
+                        </div>
+                   </div>
+                </div>
+                <div class="col">
+                        <div class="card w-100">
+                            <img src="./public/img/sanks.jpg" width="100%" class="card-image-top" width="100%" alt="">
+                            <div class="card-header">
+                                <h1>Snkes</h1>
+                            </div>
+                            <div class="card-body">
+                                <dl>
+                                    <dt><h3>Price</h3></dt>
+                                    <dd>
+                                        <input type="checkbox" class="form-check-input" value="Snkes" name="sanks" id="optaddon2">
+                                        <label for=""><h3>$200</h3></label>
+                                    </dd>
+                                </dl>
+                            </div>
+                        </div>
+                </div>
+                <div class="col">
+                    <div class="card w-100">
+                        <img src="./public/img/drink2.jpg" class="card-image-top" width="100%" alt="">
+                        <div class="card-header">
+                            <h1>Cooldrinks</h1>
+                        </div>
+                        <div class="card-body">
+                            <dl>
+                                <dt><h3>Price</h3></dt>
+                                <dd>
+                                    <input type="checkbox" class="form-check-input" value="Cooldrinks" name="Cooldrinks3" id="optaddon3">
+                                    <label for=""><h3>$100</h3></label>
+                                </dd>
+                            </dl>
+                        </div>
+                </div>
+            </div>
+            <div>
+                <button onclick="OrderClick()" class="btn btn-dark w-100" data-bs-target="#billsummary" data-bs-toggle="modal">
+                    Place Order
+                </button>
+                <div class="modal" id="billsummary">
+                    <div class="modal-dialog">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <h1>Bill Summary</h1>
+                                <button class="btn btn-close" data-bs-dismiss="modal"></button>
+                            </div>
+                            <div class="modal-body">
+                                <dl class="row">
+                                    <dt class="col-3">Custmor</dt>
+                                    <dd class="col-9" id="lblcustmor"></dd>
+                                    <dt class="col-3">Mobile Number</dt>
+                                    <dd class="col-9" id="lblnumber"></dd>
+                                    <dt class="col-3">Meal</dt>
+                                    <dd class="col-9" id="lblmeal"></dd>
+                                    <dt class="col-3">Adon's</dt>
+                                    <dd class="col-9" id="lbladon"></dd>
+                                    <dt class="col-3">Total</dt>
+                                    <dd class="col-9" id="lbltotle"></dd>
+                                </dl>
+                            </div>
+                            <div class="modal-footer">
+                                <button class="btn btn-success" data-bs-dismiss="modal">OK</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+</body>
+</html>
