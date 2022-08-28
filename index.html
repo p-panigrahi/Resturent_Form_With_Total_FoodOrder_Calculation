@@ -51,7 +51,9 @@
                 addonCost = 100;
                 mealPrice += addonCost;
             }
-            if()
+            if(checkaddon1.checked == "" && checkaddon2.checked == "" && checkaddon3.checked == ""){
+                document.getElementById("lbladon").innerHTML = "Addon not selected";
+            }
             total = mealPrice;
             document.getElementById("lblmeal").innerHTML = mealName;
             document.getElementById("lbladon").innerHTML = addonName;
